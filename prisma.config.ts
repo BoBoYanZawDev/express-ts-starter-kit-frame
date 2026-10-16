@@ -1,0 +1,9 @@
+import "dotenv/config";
+import { defineConfig } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  migrations: { path: "prisma/migrations" },
+  // Generation/validation do not need a running database.
+  datasource: { url: process.env.DATABASE_URL || "postgresql://postgres:postgres@localhost:5432/express_frame" },
+});
